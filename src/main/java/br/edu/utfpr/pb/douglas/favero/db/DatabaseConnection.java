@@ -1,4 +1,4 @@
-package br.edu.utfpr.douglas.favero.db;
+package br.edu.utfpr.pb.douglas.favero.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;

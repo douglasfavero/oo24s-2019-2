@@ -45,6 +45,10 @@ public class Cliente {
     @Column(name = "passaporte", length = 20,)
     private String passaporte;
 
+    public Cliente() {
+    }
+    
+    
     public Long getId() {
         return id;
     }
