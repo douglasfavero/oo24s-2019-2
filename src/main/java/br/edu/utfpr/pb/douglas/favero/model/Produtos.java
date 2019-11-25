@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.douglas.favero.model;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 
 @Entity
@@ -26,6 +27,34 @@ public class Produtos {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "produto_id", referencedColumnName = "id", nullable = true)
     private Reserva reserva;
+
+    public Produtos() {
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produtos other = (Produtos) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
     
     
 
