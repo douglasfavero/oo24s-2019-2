@@ -28,6 +28,10 @@ public class Quartos {
     @Column(name = "diaria",length = 20, nullable false)
     private String diaria;
 
+    @OneToMany()
+    @JoinColumn(name = "reserva_id"), referencedColumnName="id")
+    private Reserva reserva;
+    
     public Quartos() {
     }
 
@@ -78,6 +82,16 @@ public class Quartos {
     public void setDiaria(String diaria) {
         this.diaria = diaria;
     }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+    
+    
 
     @Override
     public int hashCode() {
