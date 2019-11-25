@@ -16,7 +16,7 @@ import javax.validation.Validator;
 
 public abstract class GenericDao<T extends AbstractModel, I extends Serializable> {
 
-    @PersistenceContext(unitName = "AulaSwingPU")
+    @PersistenceContext(unitName = "TrabalhoFinalPU")
     protected EntityManager em;
 
     private Class<T> persistedClass;
