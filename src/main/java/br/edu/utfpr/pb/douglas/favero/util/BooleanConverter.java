@@ -1,4 +1,4 @@
-package br.edu.utfpr.pb.oo24s.aula5.javafx.util;
+package br.edu.utfpr.pb.douglas.favero.util;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Convert;

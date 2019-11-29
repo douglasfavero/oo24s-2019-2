@@ -1,4 +1,4 @@
-package br.edu.utfpr.pb.oo24s.aula5.javafx.dao;
+package br.edu.utfpr.pb.douglas.favero.dao;
 
 import br.edu.utfpr.pb.oo24s.aula5.javafx.model.AbstractModel;
 import br.edu.utfpr.pb.oo24s.aula5.javafx.util.EntityManagerUtil;
