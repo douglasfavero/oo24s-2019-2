@@ -43,7 +43,7 @@ public class FXMLLoginController implements Initializable {
    @FXML
     private void login() {
         try {
-            Usuario usuario = this.usuarioDao.findByPermissaoNome(
+            Usuario usuario = this.usuarioDao.findByEmailAndSenhaNamedQuery(
                     textUsuario.getText(), textSenha.getText());
             if (usuario != null) {
                 

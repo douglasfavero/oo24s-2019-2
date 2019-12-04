@@ -1,56 +1,88 @@
 package br.edu.utfpr.pb.douglas.favero.model;
 
 import br.edu.utfpr.pb.douglas.favero.util.BooleanConverter;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class Usuario{
+@Table(name = "usuario")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findByEmailAndSenha",
+            query = "from Usuario u "
+            + " where u.email=:email AND u.senha=:senha"),
+    @NamedQuery(name = "Usuario.findAll",
+            query = "Select u from Usuario u")
+})
+public class Usuario implements AbstractModel, Serializable {
 
-  
+    private static final long serialVersionUID = 1L;
+    public static final String FIND_ALL = "Usuario.findAll";
+    public static final String FIND_BY_EMAIL_AND_SENHA
+            = "Usuario.findByEmailAndSenha";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotEmpty(message = "O campo 'nome' é "
+            + "obrigatório!")
     @Column(length = 100, nullable = false)
     private String nome;
-
+    @NotEmpty(message = "O campo 'cpf' é "
+            + "obrigatório!")
+    @Column(length = 11, nullable = false)
+    private String cpf;
     @Column(length = 100, nullable = false)
     private String email;
-
     @Column(length = 512, nullable = false)
     private String senha;
-
     @Convert(converter = BooleanConverter.class)
-    @Column(nullable = false, columnDefinition = "char(1) default 'V'")
+    @Column(columnDefinition = "char(1) default 'T'")
     private Boolean ativo;
-
-    @Column(name = "data_nascimento", nullable = false)
+    @NotNull(message = "O campo "
+            + "'Data de Nascimento' é "
+            + "obrigatório!")
+    @Column(nullable = false)
     private LocalDate dataNascimento;
+    @Lob
+    @Column()
+    private byte[] foto;
 
-    @ManyToMany
-    @JoinTable(name = "usuario_permissao",
-            joinColumns = {
-                @JoinColumn(name = "usuario_id", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "permissao_id", nullable = false, updatable = false)
-            })
-    private List<Autenticacao> autenticao;
+    @OneToMany(mappedBy = "usuario", orphanRemoval = true,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private List<Autenticacao> autenticacao;
 
-    public Usuario() {
+    public List<Autenticacao> getAutenticacao() {
+        return autenticacao;
+    }
+
+    public void setAutenticacao(List<Autenticacao> autenticacao) {
+        this.autenticacao = autenticacao;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public Long getId() {
@@ -67,6 +99,14 @@ public class Usuario{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -101,18 +141,10 @@ public class Usuario{
         this.dataNascimento = dataNascimento;
     }
 
-    public List<Autenticacao> getAutenticacao() {
-        return autenticacao;
-    }
-
-    public void setAutenticacao(List<Autenticacao> autenticacao) {
-        this.autenticacao = autenticacao;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -133,11 +165,4 @@ public class Usuario{
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", ativo=" + ativo + ", dataNascimento=" + dataNascimento + ", autenticao=" + autenticao + '}';
-    }
-    
-
 }

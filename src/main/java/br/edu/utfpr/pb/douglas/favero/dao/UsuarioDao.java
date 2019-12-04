@@ -4,21 +4,19 @@ import br.edu.utfpr.pb.douglas.favero.model.Usuario;
 import java.util.List;
 import javax.persistence.Query;
 
-
 public class UsuarioDao extends GenericDao<Usuario, Long> {
 
     public UsuarioDao() {
         super(Usuario.class);
     }
 
-   public List<Usuario> findByPermissaoNome(String nome) {
-        Query q = em.createQuery("Select u from Usuario u "
-                + "join fetch u.permissoes p where p.nome = :nome");
-        q.setParameter("nome", nome);
-        return q.getResultList();
-    }
+    public Usuario findByEmailAndSenhaNamedQuery(String email,
+            String senha) {
+        Query query = em.createNamedQuery(
+                Usuario.FIND_BY_EMAIL_AND_SENHA);
+        query.setParameter("email", email);
+        query.setParameter("senha", senha);
 
-    public Usuario findByPermissaoNome(String text, String text0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Usuario) query.getSingleResult();
     }
 }
