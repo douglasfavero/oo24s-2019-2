@@ -16,15 +16,11 @@ public class Reserva {
     private Integer numero;
 
     @OneToMany()
-    @JoinColumn(name = "cliente_id")
-     , referencedColumnName = "id"
-    )
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Cliente cliente;
 
     @OneToMany()
-    @JoinColumn(name = "hospedes_id")
-     , referencedColumnName = "id"
-    )
+    @JoinColumn(name = "hospedes_id",referencedColumnName = "id")
     private Hospedes hospedes;
 
     @Column(name = "data_reserva", nullable = false)

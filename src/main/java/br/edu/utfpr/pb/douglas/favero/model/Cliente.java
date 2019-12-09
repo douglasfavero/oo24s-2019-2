@@ -42,7 +42,7 @@ public class Cliente {
     @Column(name = "rg", length = 10, nullable = false)
     private String rg;
     
-    @Column(name = "passaporte", length = 20,)
+    @Column(name = "passaporte", length = 20)
     private String passaporte;
 
     public Cliente() {
