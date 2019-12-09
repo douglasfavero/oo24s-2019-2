@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vboxPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="package br.edu.utfpr.pb.douglas.favero.controller.FXMLPrincipalController">
+   <children>
+      <HBox prefHeight="28.0" prefWidth="600.0">
+         <children>
+            <MenuBar HBox.hgrow="ALWAYS">
+              <menus>
+                <Menu mnemonicParsing="false" text="Cadastros">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Cliente" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Reservas">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Quartos" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Relatórios">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Check-out" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </HBox>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="369.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="184.0">
+               <children>
+                  <Accordion prefHeight="367.0" prefWidth="175.0">
+                    <panes>
+                      <TitledPane animated="false" text="Cadastros">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="7.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Cliente" />
+                                    <Button layoutX="7.0" layoutY="36.0" mnemonicParsing="false" text="Produtos" />
+                                    <Button layoutX="7.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Serviços" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Reservas">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" text="Nova Reserva" />
+                                    <Button layoutX="6.0" layoutY="34.0" mnemonicParsing="false" text="Quartos" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Relatórios">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="7.0" layoutY="2.0" mnemonicParsing="false" text="Relatório de Check-out" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="367.0" prefWidth="417.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>

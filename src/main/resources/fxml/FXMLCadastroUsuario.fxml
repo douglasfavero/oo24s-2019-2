@@ -32,7 +32,7 @@
       <Label layoutX="229.0" layoutY="29.0" text="Foto" />
       <ImageView fx:id="imageFoto" fitHeight="220.0" fitWidth="200.0" layoutX="229.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../aula5-java11/src/main/resources/imagens/user-default.png" />
+            <Image url="@../imagens/user-default.png" />
          </image>
       </ImageView>
       <Button fx:id="buttonCarregar" layoutX="267.0" layoutY="267.0" mnemonicParsing="false" text="Carregar Imagem" />
