@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="422.0" prefWidth="553.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.utfpr.pb.douglas.favero.controller.FXMLClienteCadastroController">
+    <stylesheets>
+        <URL value="@/styles/style.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="5.0" layoutY="25.0" text="Código" />
+      <Label layoutX="8.0" layoutY="82.0" text="Nome" />
+      <Label layoutX="7.0" layoutY="156.0" text="Estado" />
+      <Label layoutX="6.0" layoutY="229.0" text="Cidade" />
+      <Label layoutX="14.0" layoutY="299.0" text="Rua" />
+      <Label layoutX="13.0" layoutY="365.0" text="Número" />
+      <Label layoutX="270.0" layoutY="25.0" text="Bairro" />
+      <Label layoutX="271.0" layoutY="82.0" text="Telefone" />
+      <Label layoutX="269.0" layoutY="156.0" text="E-mail" />
+      <Label layoutX="276.0" layoutY="229.0" text="CPF" />
+      <Label layoutX="278.0" layoutY="299.0" text="RG" />
+      <Label layoutX="273.0" layoutY="365.0" text="Passaporte" />
+      <TextField fx:id="textId" editable="false" layoutX="4.0" layoutY="42.0" prefHeight="25.0" prefWidth="239.0" />
+      <TextField fx:id="textNome" layoutX="8.0" layoutY="99.0" prefHeight="25.0" prefWidth="239.0" />
+      <ComboBox fx:id="comboEstado" layoutX="8.0" layoutY="172.0" prefHeight="25.0" prefWidth="239.0" />
+      <TextField fx:id="textCidade" layoutX="8.0" layoutY="245.0" prefHeight="25.0" prefWidth="239.0" />
+      <TextField fx:id="textRua" layoutX="8.0" layoutY="315.0" prefHeight="25.0" prefWidth="239.0" />
+      <TextField fx:id="textNumero" layoutX="8.0" layoutY="381.0" prefHeight="25.0" prefWidth="239.0" />
+      <TextField fx:id="textBairro" layoutX="269.0" layoutY="42.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="textTelefone" layoutX="269.0" layoutY="99.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="textEmail" layoutX="271.0" layoutY="172.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="textCpf" layoutX="269.0" layoutY="245.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="textRg" layoutX="269.0" layoutY="315.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="textPassaporte" layoutX="273.0" layoutY="381.0" prefHeight="25.0" prefWidth="272.0" />
+   </children>
+</AnchorPane>

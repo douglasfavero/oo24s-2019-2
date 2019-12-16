@@ -15,8 +15,8 @@ public class Cliente {
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
 
-    @Column(name = "estado", length = 50, nullable = false)
-    private String estado;
+   @Enumerated(EnumType.STRING)
+    private EEstados eEstados;
 
     @Column(name = "cidade", length = 70, nullable = false)
     private String cidade;
@@ -24,8 +24,8 @@ public class Cliente {
     @Column(name = "rua", length = 70, nullable = false)
     private String rua;
 
-    @Column(name = "numero", nullable = false)
-    private Integer numero;
+    @Column(name = "numero",lenght = 10, nullable = false)
+    private String numero;
 
     @Column(name = "bairro", length = 80, nullable = false)
     private String bairro;
@@ -65,14 +65,15 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getEstado() {
-        return estado;
+    public EEstados geteEstados() {
+        return eEstados;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void seteEstados(EEstados eEstados) {
+        this.eEstados = eEstados;
     }
 
+   
     public String getCidade() {
         return cidade;
     }
